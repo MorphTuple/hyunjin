@@ -10,7 +10,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "BSD-0-Clause",
   "dependencies": {
     "dotenv": "^8.2.0",
     "eris": "^0.14.1"
