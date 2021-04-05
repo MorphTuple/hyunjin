@@ -1,4 +1,4 @@
-import { Embed, EmbedAuthor } from 'eris';
+import { Embed } from 'eris';
 import { IHyunjinCommand } from "../interfaces/IHyunjinCommand";
 import HYUNJIN_COLOR from '../constants';
 
