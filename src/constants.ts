@@ -1,5 +1,4 @@
 const HYUNJIN_COLOR = 0x43729F;
+const URL_REGEX = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g
 
-// Remove when multiple constants has been exported from this file
-// eslint-disable-next-line import/prefer-default-export
-export { HYUNJIN_COLOR };
+export { HYUNJIN_COLOR, URL_REGEX };
