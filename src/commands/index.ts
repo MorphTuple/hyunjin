@@ -1,3 +1,4 @@
-import Ping from './Ping'
+import About from './About';
+import Ping from './Ping';
 
-export default [Ping]
+export default [About, Ping]
