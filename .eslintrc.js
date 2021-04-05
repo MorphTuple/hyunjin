@@ -18,6 +18,6 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
     'indent' : ["error", 4],
-    'no-console' : 'off'
+    'no-console' : 'off',
   },
 };
