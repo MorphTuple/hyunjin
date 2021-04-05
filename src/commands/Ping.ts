@@ -8,7 +8,7 @@ const ping : IHyunjinCommand = {
         sent.edit(`Latency is around ${Date.now() - past}ms`)
     },
     options : {
-        description : 'Returns the bot ping information'
+        description : 'Returns the bot ping information.'
     }
 }
 
