@@ -9,6 +9,14 @@ const hyunjin = new CommandClient(config.botToken, {}, {
     prefix: config.prefix,
 });
 
+function updateStatus() {
+    hyunjin.editStatus('online', {
+        name: PRESENCES[getRandomNumber(PRESENCES.length)],
+        type: 0,
+    });
+    setTimeout(updateStatus, 3600 * 1000);
+}
+
 hyunjin.on('ready', () => {
     updateStatus();
 });
@@ -27,11 +35,3 @@ commands.forEach((e) => {
 hyunjin.connect().then(async () => {
     console.log(`Hyunjin is now online with the prefix ${config.prefix}`);
 });
-
-function updateStatus() {
-    hyunjin.editStatus('online', {
-        name: PRESENCES[getRandomNumber(PRESENCES.length)],
-        type: 0
-    });
-    setTimeout(updateStatus, 3600 * 1000);
-}

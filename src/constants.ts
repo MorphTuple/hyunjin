@@ -38,7 +38,7 @@ const PRESENCES = [
     'WebStorm',
     'Visual Studio 2019 Preview',
     'Onivim',
-    'Sublime Text'
+    'Sublime Text',
 ];
 
 // Remove when multiple constants has been exported from this file
