@@ -1,6 +1,6 @@
 import { Embed } from 'eris';
 import { IHyunjinCommand } from "../interfaces/IHyunjinCommand";
-import HYUNJIN_COLOR from '../constants';
+import { HYUNJIN_COLOR } from '../constants';
 
 const about : IHyunjinCommand = {
     label: 'about',
