@@ -10,10 +10,10 @@ export default function loadClearUrlDefinitions() : IClearURLProvider[] {
     const ret : IClearURLProvider[] = []
     for (let i in data['providers']){
         const provider = data['providers'][i]
-        const rules = []
+        const rules : RegExp[] = []
 
-        for(let rule in provider['rules']){
-            rules.push(new RegExp(rule, 'g'))
+        if(provider['rules']){
+            provider['rules'].forEach((e: string) => rules.push(new RegExp(e, 'g')))
         }
 
         ret.push({
