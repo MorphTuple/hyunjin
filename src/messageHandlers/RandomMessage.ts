@@ -1,7 +1,7 @@
 import { IHyunjinMessageHandler } from "../interfaces/IHyunjinMessageHandler"
 
 const randomMessage : IHyunjinMessageHandler = {
-    label : 'randomMessager',
+    label : 'randomMessenger',
     trigger : () => Math.random() < .01,
     generator : (msg) => {
         // You can implement custom message reactions here
