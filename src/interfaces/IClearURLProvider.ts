@@ -1,6 +1,6 @@
 interface IClearURLProvider{
     urlPattern : RegExp,
-    rules : string[] | undefined,
+    rules : RegExp[] | undefined,
     redirections : string[] | undefined,
     providerName : string,
     completeProvider : boolean | undefined

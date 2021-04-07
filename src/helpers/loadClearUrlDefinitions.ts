@@ -9,9 +9,17 @@ export default function loadClearUrlDefinitions() : IClearURLProvider[] {
     const data = JSON.parse(rawData)
     const ret : IClearURLProvider[] = []
     for (let i in data['providers']){
+        const provider = data['providers'][i]
+        const rules = []
+
+        for(let rule in provider['rules']){
+            rules.push(new RegExp(rule, 'g'))
+        }
+
         ret.push({
-            ...data['providers'][i],
-            urlPattern : new RegExp(data['providers'][i]['urlPattern']),
+            ...provider,
+            rules,
+            urlPattern : new RegExp(provider['urlPattern']),
             providerName : i
         })
     }

@@ -13,17 +13,14 @@ export default function clearUrl(url : string) : string{
     for(let provider of definitions){
         if(provider.urlPattern.test(url)){
             if(!provider.rules) continue
-            console.log('provider rules', provider.rules)
 
             // TODO algorithm might be improvable?
             for(let rule of provider.rules){
-                let exp = new RegExp(rule, 'g')
-            
                 for(let query in queries){
-                    if(exp.test(query)){
+                    if(rule.test(query)){
                         delete queries[query]
                     }
-                    exp.lastIndex = 0
+                    rule.lastIndex = 0
                 }
                 // for(let pathIndex in parsed.path){
                 //     if(new RegExp(rule, 'g').test(parsed.path[pathIndex])){
