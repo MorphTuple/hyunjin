@@ -1,4 +1,6 @@
 const HYUNJIN_COLOR = 0x43729F;
+const HYUNJIN_GREEN_COLOR = 0x64ea4d;
+const URL_REGEX = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g;
 
 const PRESENCES = [
     'iEggplant',
@@ -41,6 +43,4 @@ const PRESENCES = [
     'Sublime Text',
 ];
 
-// Remove when multiple constants has been exported from this file
-// eslint-disable-next-line import/prefer-default-export
-export { HYUNJIN_COLOR, PRESENCES };
+export { HYUNJIN_COLOR, HYUNJIN_GREEN_COLOR, URL_REGEX, PRESENCES };
