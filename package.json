@@ -4,9 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node dist/hyunjin.js",
     "start:dev": "ts-node src/hyunjin.ts",
     "lint": "eslint src/**.ts",
-    "lint:fix": "eslint src/**.ts --fix"
+    "lint:fix": "eslint src/**.ts --fix",
+    "build": "npm run clean && tsc && npm run copy-assets",
+    "clean": "rimraf dist/",
+    "copy-assets": "ncp src/assets dist/assets"
   },
   "keywords": [],
   "author": "",
@@ -24,7 +28,9 @@
     "eslint": "^7.23.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
+    "ncp": "^2.0.0",
     "nodemon": "^2.0.7",
+    "rimraf": "^3.0.2",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.3"
   }
