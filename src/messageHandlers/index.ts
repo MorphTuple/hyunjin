@@ -1,4 +1,4 @@
-import ClearURL from "./ClearURL";
+import ClearURL from "./DirtyURL";
 import RandomMessage from "./RandomMessage";
 
 export default [RandomMessage, ClearURL]

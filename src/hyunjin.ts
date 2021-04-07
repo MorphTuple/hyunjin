@@ -2,7 +2,6 @@ import { CommandClient } from 'eris';
 import config from './config';
 import commands from './commands/index';
 import messageHandlers from './messageHandlers/index';
-import clearURL from './helpers/clearUrl';
 
 const hyunjin = new CommandClient(config.botToken, {}, {
     prefix: config.prefix,
