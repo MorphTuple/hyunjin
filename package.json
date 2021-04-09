@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node dist/hyunjin.js",
     "start:dev": "ts-node src/hyunjin.ts",
-    "lint": "eslint src/**.ts",
-    "lint:fix": "eslint src/**.ts --fix",
+    "lint": "eslint src/**/**.ts",
+    "lint:fix": "eslint src/**/**.ts --fix",
     "build": "npm run clean && tsc && npm run copy-assets",
     "clean": "rimraf dist/",
     "copy-assets": "ncp src/assets dist/assets"
@@ -16,6 +16,7 @@
   "author": "",
   "license": "BSD-0-Clause",
   "dependencies": {
+    "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "eris": "^0.14.1",
     "whatwg-url": "^8.5.0"
