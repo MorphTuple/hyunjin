@@ -1,4 +1,5 @@
-import ClearURL from "./DirtyURL";
-import RandomMessage from "./RandomMessage";
+import ClearURL from './DirtyURL';
+import GithubPreview from './GithubPreview';
+import RandomMessage from './RandomMessage';
 
-export default [RandomMessage, ClearURL]
+export default [RandomMessage, ClearURL, GithubPreview];
