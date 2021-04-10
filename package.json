@@ -1,7 +1,7 @@
 {
   "name": "hyunjin",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.2",
+  "description": "Yet another discord bot",
   "main": "index.js",
   "scripts": {
     "start": "node dist/hyunjin.js",
@@ -13,8 +13,17 @@
     "copy-assets": "ncp src/assets dist/assets"
   },
   "keywords": [],
-  "author": "",
-  "license": "BSD-0-Clause",
+  "author": "not-archiey",
+  "contributors": [
+    {
+      "name": "deadshot465"
+    }
+  ],
+  "license": "BSD",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/not-archiey/hyunjin"
+  },
   "dependencies": {
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
