@@ -24,7 +24,9 @@ hyunjin.on('ready', () => {
 hyunjin.on('messageCreate', (msg) => {
     if (msg.command || msg.author.bot) return;
     messageHandlers.forEach((e) => {
-        if (e.trigger(msg)) e.generator(msg);
+        if (e.trigger === null) {
+            e.generator(msg);
+        } else if (e.trigger(msg)) e.generator(msg);
     });
 });
 

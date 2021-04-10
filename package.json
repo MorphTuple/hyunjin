@@ -1,21 +1,31 @@
 {
   "name": "hyunjin",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.2",
+  "description": "Yet another discord bot",
   "main": "index.js",
   "scripts": {
     "start": "node dist/hyunjin.js",
     "start:dev": "ts-node src/hyunjin.ts",
-    "lint": "eslint src/**.ts",
-    "lint:fix": "eslint src/**.ts --fix",
+    "lint": "eslint src/**/**.ts",
+    "lint:fix": "eslint src/**/**.ts --fix",
     "build": "npm run clean && tsc && npm run copy-assets",
     "clean": "rimraf dist/",
     "copy-assets": "ncp src/assets dist/assets"
   },
   "keywords": [],
-  "author": "",
-  "license": "BSD-0-Clause",
+  "author": "not-archiey",
+  "contributors": [
+    {
+      "name": "deadshot465"
+    }
+  ],
+  "license": "BSD",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/not-archiey/hyunjin"
+  },
   "dependencies": {
+    "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "eris": "^0.14.1",
     "whatwg-url": "^8.5.0"

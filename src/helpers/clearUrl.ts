@@ -1,26 +1,26 @@
-import loadClearUrlDefinitions from "./loadClearUrlDefinitions";
-import { parseURL, serializeURL } from 'whatwg-url'
-import querystring from 'querystring'
+import { parseURL, serializeURL } from 'whatwg-url';
+import querystring from 'querystring';
+import loadClearUrlDefinitions from './loadClearUrlDefinitions';
 
-const definitions = loadClearUrlDefinitions()
+const definitions = loadClearUrlDefinitions();
 
-export default function clearUrl(url : string) : string{
-    let parsed = parseURL(url)
-    if(!parsed) return url
+export default function clearUrl(url : string) : string {
+    const parsed = parseURL(url);
+    if (!parsed) return url;
 
-    let queries = parsed.query ? querystring.parse(parsed.query) : {}
+    const queries = parsed.query ? querystring.parse(parsed.query) : {};
 
-    for(let provider of definitions){
-        if(provider.urlPattern.test(url)){
-            if(!provider.rules) continue
+    for (const provider of definitions) {
+        if (provider.urlPattern.test(url)) {
+            if (!provider.rules) continue;
 
             // TODO algorithm might be improvable?
-            for(let rule of provider.rules){
-                for(let query in queries){
-                    if(rule.test(query)){
-                        delete queries[query]
+            for (const rule of provider.rules) {
+                for (const query in queries) {
+                    if (rule.test(query)) {
+                        delete queries[query];
                     }
-                    rule.lastIndex = 0
+                    rule.lastIndex = 0;
                 }
                 // for(let pathIndex in parsed.path){
                 //     if(new RegExp(rule, 'g').test(parsed.path[pathIndex])){
@@ -34,8 +34,8 @@ export default function clearUrl(url : string) : string{
         }
     }
 
-    parsed.query = querystring.stringify(queries)
-    const res = serializeURL(parsed)
+    parsed.query = querystring.stringify(queries);
+    const res = serializeURL(parsed);
 
-    return res === url + '?' ? url : res
+    return res === `${url}?` ? url : res;
 }
