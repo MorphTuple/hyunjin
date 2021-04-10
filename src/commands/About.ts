@@ -1,6 +1,7 @@
 import { Embed } from 'eris';
 import { IHyunjinCommand } from '../interfaces/IHyunjinCommand';
 import { HYUNJIN_COLOR } from '../constants';
+import hyunjinPackage from '../../package.json'
 
 const about : IHyunjinCommand = {
     label: 'about',
@@ -12,7 +13,8 @@ const about : IHyunjinCommand = {
             },
             description: 'Hyunjin Choi in the Land of Cute Bois.\nHyunjin Choi is from Camp Buddy: Scoutmasters\' Season by [BLits Games](https://www.blitsgames.com/).\nHyunjin was made and developed by: \n**Arch#0226**, **Tetsuki Syu#1250**\nWritten with: \n[TypeScript](https://www.typescriptlang.org/), [Node.js](https://nodejs.org/) runtime and [Eris](https://abal.moe/Eris/) library.',
             footer: {
-                text: 'Hyunjin Bot: Release 0.1 | 2021-04-05',
+                // Date still needs to be manually updated
+                text: `Hyunjin Bot: Release ${hyunjinPackage.version} | 2021-04-10`,
             },
             color: HYUNJIN_COLOR,
             thumbnail: {
