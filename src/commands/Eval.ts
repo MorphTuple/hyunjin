@@ -1,6 +1,7 @@
 import { Embed } from 'eris';
 import { IHyunjinCommand } from '../interfaces/IHyunjinCommand';
 import {
+    attemptGetEvalResult,
     createEvalRequest, genereateJudgeZeroMessage, getAvailableLanguages, getEvalResult,
 } from '../helpers/judgeZero';
 
@@ -19,10 +20,13 @@ const evalCmd : IHyunjinCommand = {
             source_code: code,
         });
 
-        const result = await getEvalResult(req.token);
-        const responseMsg = genereateJudgeZeroMessage(msg, result);
-
-        msg.channel.createMessage(responseMsg);
+        try{
+            const result = await attemptGetEvalResult(req.token, 5);
+            const responseMsg = genereateJudgeZeroMessage(msg, result);
+            msg.channel.createMessage(responseMsg);
+        } catch (e) {
+            msg.channel.createMessage(`Error! ${e}`)
+        }
     },
     options: {
         description: 'Evaluates a programming expression',

@@ -26,6 +26,7 @@ interface JudgeZeroPostResponse{
 }
 
 interface JudgeZeroGetResponse{
+    status_id : number
     stdout : string
     stderr : string
     message : string
@@ -61,13 +62,29 @@ export async function getEvalResult(token : string) : Promise<JudgeZeroGetRespon
 
     const { data } = res;
 
-    data.stdout = Buffer.from(data.stdout, 'base64').toString('binary');
+    if(data.stdout != null && data.stdout != ''){
+        data.stdout = Buffer.from(data.stdout, 'base64').toString('binary');
+    }
 
-    if (data.compile_output != null || '') {
+    if (data.compile_output != null && data.compile_output != '') {
         data.compile_output = Buffer.from(data.compile_output, 'base64').toString('binary');
     }
 
     return data;
+}
+
+
+export async function attemptGetEvalResult(token : string, maxRetry = 5) : Promise<JudgeZeroGetResponse>{
+    let res = await getEvalResult(token)
+    for(let i = 0; i < maxRetry && res.status_id === 2; i++){
+        res = await getEvalResult(token)
+    }
+
+    if(res.status_id === 2){
+        throw new Error(`${maxRetry} request attempts has been made`)
+    }
+
+    return res
 }
 
 export function genereateJudgeZeroMessage(originalMsg : Eris.Message<Eris.TextableChannel>, result : JudgeZeroGetResponse) : MessageContent {
@@ -81,7 +98,10 @@ export function genereateJudgeZeroMessage(originalMsg : Eris.Message<Eris.Textab
 
     if (!result.stdout) {
         if (result.compile_output) {
-            const msg = `Sorry! I cannot compile your code. Here's some error message: ${result.compile_output}`;
+            let msg = `Sorry! I cannot compile your code. Here's some error message: ${result.compile_output}`;
+            if(msg.length > 2047){
+                msg = `Sorry! I cannot compile your code. The error message is also too long!`
+            }
             return { content: msg };
         }
     }
