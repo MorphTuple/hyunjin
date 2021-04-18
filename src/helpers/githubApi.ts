@@ -1,5 +1,5 @@
 import axios from 'axios';
-import colors from '../assets/language_colors.json'
+import colors from '../assets/language_colors.json';
 import { HYUNJIN_GREEN_COLOR } from '../constants';
 
 interface GithubRepositoryLicense{
@@ -27,14 +27,14 @@ export async function getRepositoryInfo(author : string, repositoryName : string
         headers: { Accept: 'application/vnd.github.v3+json' },
     });
 
-    if(res.status !== 200){
-        return
+    if (res.status !== 200) {
+        return;
     }
 
     return res.data as GithubRepository;
 }
 
-export function getColorFromLanguage(language : string) : number{
+export function getColorFromLanguage(language : string) : number {
     // I'm sorry, but the JSON clearly have it
     // @ts-ignore
     return Number(colors.languages[language]) || HYUNJIN_GREEN_COLOR;
