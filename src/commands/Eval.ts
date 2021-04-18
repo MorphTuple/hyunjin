@@ -20,12 +20,12 @@ const evalCmd : IHyunjinCommand = {
             source_code: code,
         });
 
-        try{
+        try {
             const result = await attemptGetEvalResult(req.token, 5);
             const responseMsg = genereateJudgeZeroMessage(msg, result);
             msg.channel.createMessage(responseMsg);
         } catch (e) {
-            msg.channel.createMessage(`Error! ${e}`)
+            msg.channel.createMessage(`Error! ${e}`);
         }
     },
     options: {
