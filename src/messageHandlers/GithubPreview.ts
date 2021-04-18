@@ -21,29 +21,29 @@ const githubPreview : IHyunjinMessageHandler = {
         const repoName = parsed.path[1];
 
         const repositoryInfo = await getRepositoryInfo(author, repoName);
-        if(!repositoryInfo) return
+        if (!repositoryInfo) return;
 
-        const languageColor = getColorFromLanguage(repositoryInfo.language)
+        const languageColor = getColorFromLanguage(repositoryInfo.language);
 
         msg.channel.createMessage({
             embed: {
-                color : languageColor,
+                color: languageColor,
                 fields: [
                     {
                         name: '📙 Language',
                         value: repositoryInfo.language || 'Unknown Language',
-                        inline : true
+                        inline: true,
                     },
                     {
-                        name : '⚖️ License',
+                        name: '⚖️ License',
                         value: repositoryInfo.license ? repositoryInfo.license.name : 'No license provided',
-                        inline : true
+                        inline: true,
                     },
                     {
-                        name : '🌟 Stars',
+                        name: '🌟 Stars',
                         value: String(repositoryInfo.stargazers_count),
-                        inline : true
-                    }
+                        inline: true,
+                    },
                 ],
             },
         });
