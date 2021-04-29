@@ -46,7 +46,7 @@ export async function getAvailableLanguages() : Promise<JudgeZeroLanguage[]> {
 }
 
 export async function createEvalRequest(body : JudgeZeroRequestBody) : Promise<JudgeZeroPostResponse> {
-    body.source_code = Buffer.from(body.source_code, 'binary').toString('base64');
+    body.source_code = Buffer.from(body.source_code, 'utf-8').toString('base64');
 
     const res = await client.post('/submissions', body, {
         params: judgeZeroSubmissionParams,
@@ -63,7 +63,7 @@ export async function getEvalResult(token : string) : Promise<JudgeZeroGetRespon
     const { data } = res;
 
     if (data.stdout != null && data.stdout != '') {
-        data.stdout = Buffer.from(data.stdout, 'base64').toString('binary');
+        data.stdout = Buffer.from(data.stdout, 'base64').toString();
     }
 
     if (data.compile_output != null && data.compile_output != '') {
