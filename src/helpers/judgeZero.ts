@@ -76,6 +76,7 @@ export async function getEvalResult(token : string) : Promise<JudgeZeroGetRespon
 export async function attemptGetEvalResult(token : string, maxRetry = 5) : Promise<JudgeZeroGetResponse> {
     let res = await getEvalResult(token);
     for (let i = 0; i < maxRetry && res.status_id === 2; i++) {
+        setTimeout(() => {}, 2000);
         res = await getEvalResult(token);
     }
 
